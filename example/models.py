@@ -8,3 +8,4 @@ class Example(models.Model):
     field3 = models.BooleanField(default=False)
     field4 = models.IntegerField(default=42)
     field5 = models.TextField(null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
