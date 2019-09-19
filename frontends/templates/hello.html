@@ -7,15 +7,23 @@
         <script src="https://unpkg.com/jquery" charset="utf-8"></script>
 
         <script type="text/javascript">
+            let str = JSON.stringify;
+            function errFn(res) {
+                // console.log(res);
+                $('#err').text(res.responseText);
+            }
             $(function () {
                 $.get('/api/examples').then(function(res){
                     // console.log(res);
-                    $('#ex1').text(res.length);
-                });
-                $.get('/api/ex2/?token=ttt').then(function(res){
-                    // console.log(res);
-                    $('#ex2').text(res);
-                });
+                    $('#ex1').text(str(res));
+                }).fail(errFn);
+                $.post('/api/ex2/testaction/?sam-token=ttt', {data: 'test'}).then(function(res){
+                    console.log('r',res);
+                    $('#ex2').text(str(res));
+                }).fail(errFn);
+                $.get('/api/ex2/testaction/')
+                .then(function(res){ /*deliberate error*/ })
+                .fail(errFn);
             });
         </script>
     </head>
@@ -28,5 +36,7 @@
         <h3>ex2/get</h3>
         <div id="ex2"></div>
         <hr>
+        <h4>errorz example no token</h4>
+        <div id="err">none</div>
     </body>
 </html>

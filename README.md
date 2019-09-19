@@ -21,6 +21,8 @@ field5: TextField
 created: timestamp
 
 # stuff
-**pw for db not in repro!**
+**pw for admin not in repro!**
 
 has licence bc github feature test
+
+last stages aided by tool, fear inoculum
