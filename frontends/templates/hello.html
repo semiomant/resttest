@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>frontend jquery</title>
+
+        <script src="https://unpkg.com/jquery" charset="utf-8"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                $.get('/api/examples').then(function(res){
+                    // console.log(res);
+                    $('#ex1').text(res.length);
+                });
+                $.get('/api/ex2/?token=ttt').then(function(res){
+                    // console.log(res);
+                    $('#ex2').text(res);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>API DEMO results</h1>
+        <hr>
+        <h3>examples/get</h3>
+        <div id="ex1"></div>
+        <hr>
+        <h3>ex2/get</h3>
+        <div id="ex2"></div>
+        <hr>
+    </body>
+</html>
