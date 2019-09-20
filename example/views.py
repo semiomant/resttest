@@ -24,7 +24,7 @@ class Example2ViewSet(viewsets.ModelViewSet):
     serializer_class = ExampleSerializer
 
     def _check_token(self,data_dict):
-        """ check in more detail in advanced version"""
+        """check in more detail in advanced version"""
         return 'sam-token' in data_dict
 
     def list(self, request):
@@ -39,6 +39,5 @@ class Example2ViewSet(viewsets.ModelViewSet):
         if self._check_token(get_data):
             return Response({'get':str(get_data), 'post': str(post_data)})
         else:
-            #this is kinda stupid, but 4xx status code dont trigger $.fail o_0
             return Response({'i_know_now': 'you should not be here!'},
             status=status.HTTP_417_EXPECTATION_FAILED)
