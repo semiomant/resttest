@@ -5,3 +5,6 @@ def jqfront(request):
 
 def formfront(request):
     return render(request,'hello_form.html',{})
+
+def tokenfront(request):
+    return render(request,'hello_token.html',{})

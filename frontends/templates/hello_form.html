@@ -4,39 +4,12 @@
         <meta charset="utf-8">
         <title>frontend jquery</title>
 
-        <script src="https://unpkg.com/jquery" charset="utf-8"></script>
+        <!-- <script src="https://unpkg.com/jquery" charset="utf-8"></script> -->
 
-        <script type="text/javascript">
-            let str = JSON.stringify;
-            function errFn(res) {
-                // console.log(res);
-                $('#err').text(res.responseText);
-            }
-            $(function () {
-                $.get('/api/examples').then(function(res){
-                    // console.log(res);
-                    $('#ex1').text(str(res));
-                }).fail(errFn);
-                $.post('/api/ex2/testaction/?sam-token=ttt', {data: 'test'}).then(function(res){
-                    console.log('r',res);
-                    $('#ex2').text(str(res));
-                }).fail(errFn);
-                $.get('/api/ex2/testaction/')
-                .then(function(res){ /*deliberate error*/ })
-                .fail(errFn);
-            });
-        </script>
     </head>
     <body>
-        <h1>API DEMO results</h1>
-        <hr>
-        <h3>examples/get</h3>
-        <div id="ex1">...</div>
-        <hr>
-        <h3>ex2/get</h3>
-        <div id="ex2">...</div>
-        <hr>
-        <h4>errorz example no token</h4>
-        <div id="err">none</div>
+        <h3>form demo</h3>
+        <h1>canceled!</h1>
+        <p> this form should post to /api/ex2/anotheraction</p>
     </body>
 </html>

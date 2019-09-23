@@ -7,6 +7,9 @@ makemigrations **not** built in:
 
 docker exec -ti <container> bash
 
+# important
+token method forces pw to be in code. This may be avoided, but only by a lot of hassle. There is simply no data here to protect. Feel free to "crack" away.
+
 # the example model
 _Example_
 
@@ -19,10 +22,3 @@ field4: intergerfield
 field5: TextField
 
 created: timestamp
-
-# stuff
-**pw for admin not in repro!**
-
-has licence bc github feature test
-
-last stages aided by tool, fear inoculum

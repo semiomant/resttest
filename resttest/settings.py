@@ -103,6 +103,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# REST Framework settings
+""" first try viewbased authentication scheme """
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         # 'rest_framework.authentication.BasicAuthentication',
+#         # 'rest_framework.authentication.SessionAuthentication',
+#         'rest_framework.authentication.TokenAuthentication',
+#     ]
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

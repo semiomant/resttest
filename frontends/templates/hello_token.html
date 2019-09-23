@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>frontend "token"</title>
+
+        <script src="https://unpkg.com/jquery" charset="utf-8"></script>
+        <script type="text/javascript">
+            let str = JSON.stringify;
+            let parse = JSON.parse;
+            function errFn(res) {
+                console.log('err');
+                $('#err').text(res.responseText);
+            }
+            $(function () {
+                ohSoSecretData = {username: "admin", password: "pw0987pw"};
+                $.post('/api/gimme-token/', ohSoSecretData).then(function(res){
+                    console.log('r',res.token);
+                    // $('#toktok').text(res.token);
+                    $.ajaxSetup({
+                        headers: {'Authorization': "Token "+res.token}
+                    });
+                    console.log('1');
+                }).then(function functionName() {
+                    console.log('2');
+                    $.post('/api/ex2/testaction/?sam-token=ttt', {data: 'test'}).then(function(res){
+                        console.log('r',res);
+                        $('#result').text(str(res));
+                    }).fail(errFn);
+                }).fail(errFn);
+            });
+        </script>
+    </head>
+    <body>
+        <h3>token demo</h3>
+        <p id="result">...</p>
+        <br>
+        <br>
+        <p id="err">aok</p>
+    </body>
+</html>
